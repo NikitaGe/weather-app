@@ -12,6 +12,8 @@ const allowedOrigins = ['http://localhost:3000'];
 const options: cors.CorsOptions = {
   origin: allowedOrigins
 };
+
+app.use(express.static(__dirname + '/public'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use("/css",express.static("./node_modules/bootstrap/dist/css"));
@@ -30,8 +32,6 @@ app.use('/api',UserController);
 
 app.get('/', async(req, res) => {
   try {
-      //let data = req.body
-      //let test = await UserServices.CompareLogin(data);
       res.render("index");
   }catch(err) {
       res.status(400).send(err);
@@ -40,6 +40,6 @@ app.get('/', async(req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`Server is running on PORT ${port}`);
+  console.log(`{ Server is running on PORT ${port} http://localhost:3000/ }`);
 });
 
