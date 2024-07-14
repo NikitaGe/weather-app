@@ -2,6 +2,10 @@ import  express, { Request, Response} from 'express';
 import * as UserServices from '../services/user_serv'
 const router = express.Router();
 
+
+
+
+
 router.post('/login', async(req : Request , res : Response) => {
     try {
         let data = req.body
